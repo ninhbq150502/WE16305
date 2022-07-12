@@ -11,10 +11,8 @@ class UserController extends Controller
     {
         $this->v = [];
     }
-    public function index(){
-        $this->v['tieude'] = 'Tieu de';
-        $this->v['tieude1'] = 'Tieu de 1';
-        $this->v['tieude2'] = 'Tieu de 2';
-        return view('test.index', $this->v);
+    public function show_name(){
+        $this->v['hoten'] = 'Bui Quynh Ninh';
+        return view('test.show_name', $this->v);
     }
 }

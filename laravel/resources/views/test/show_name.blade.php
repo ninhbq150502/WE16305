@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hi, I'm nghiện</h1>
-    
+    <h1>{{$hoten}}</h1>
+    <h2>{{$hoten}}</h2>
+    <h3>{{$hoten}}</h3>    
 </body>
 </html>

@@ -20,4 +20,4 @@ Route::get('/', function () {
 });
 Route::get('/test', 'TestController@index');
 Route::get('/update', 'TestController@update');
-Route::get('/show_view', 'UserController@index');
+Route::get('/show_view', 'UserController@show_name');
