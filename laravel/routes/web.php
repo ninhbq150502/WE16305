@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Test1;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/test', 'TestController@index');
+Route::get('/update', 'TestController@update');
+Route::get('/show_view', 'UserController@index');
