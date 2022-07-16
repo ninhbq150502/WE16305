@@ -7,7 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hi, I'm nghiện</h1>
-    
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>Ho va ten</td>
+        </tr>
+        @foreach($test as $test)
+        <tr>
+            <td>{{$test->id}}</td>
+            <td>{{$test->TenKH}}</td>
+        </tr>
+        @endforeach
+    </table>
 </body>
 </html>
