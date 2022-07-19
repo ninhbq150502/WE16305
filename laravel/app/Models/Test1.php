@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\DB;
 class Test1 extends Model
 {
     use HasFactory;
-    protected $table = 'khach_hang';
-    protected $fillable = ['id','TenKH'];// Lấy gì thì cho vào đây
+    protected $table = 'students';
+    protected $fillable = ['id','name','email'];// Lấy gì thì cho vào đây
 
     public function loadList($params = []){
         $query = DB::table($this->table)

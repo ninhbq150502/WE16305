@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -32,6 +33,8 @@ class DatabaseSeeder extends Seeder
                 'name'=>'BUI QUYNH NINH',
                 'address'=>'', // có thể bỏ trống vì đã dùng nullable
                 'time_start'=> '2022-07-01',
+                'email'=>'ninhbqph@fpt.edu.vn',
+                'password'=> Hash::make('123456'),
                 'created_at'=> date('Y-m-d H:i:s'),
                 'updated_at'=> date('Y-m-d H:i:s')
             ],
@@ -46,17 +49,19 @@ class DatabaseSeeder extends Seeder
 
         // Insert vào bảng Students
 
-        $dataLoop = [];
-        for ($i=1; $i <= 100 ; $i++) { 
-            // $dataStudentSeed['name'].$i;
-            array_push($dataStudentSeed, [
-                'name'=>'BUI QUYNH NINH' .$i,
-                'address'=>'', // có thể bỏ trống vì đã dùng nullable
-                'time_start'=> '2022-07-01',
-                'created_at'=> date('Y-m-d H:i:s'),
-                'updated_at'=> date('Y-m-d H:i:s')
-            ],);
-        }
+        // $dataLoop = [];
+        // for ($i=1; $i <= 100 ; $i++) { 
+        //     // $dataStudentSeed['name'].$i;
+        //     array_push($dataStudentSeed, [
+        //         'name'=>'BUI QUYNH NINH' .$i,
+        //         'address'=>'', // có thể bỏ trống vì đã dùng nullable
+        //         'time_start'=> '2022-07-01',
+        //         'email'=>'ninhbqph13349@fpt.edu.vn',
+        //         'password'=> Hash::make('123456'),
+        //         'created_at'=> date('Y-m-d H:i:s'),
+        //         'updated_at'=> date('Y-m-d H:i:s')
+        //     ],);
+        // }
         DB::table('students')->insert($dataStudentSeed);
 
     }
