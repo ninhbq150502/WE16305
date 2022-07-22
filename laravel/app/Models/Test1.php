@@ -18,4 +18,10 @@ class Test1 extends Model
         $list = $query->get();
         return $list;
     }
+    public function loadListWithPager($params= []){
+        $query  = DB::table($this->table)
+        ->select($this->fillable);
+        $list =$query->paginate(13);
+        return $list;
+    }
 }

@@ -47,22 +47,35 @@ class DatabaseSeeder extends Seeder
             // ],
         ];
 
+        $dataProductSeed = [];
         // Insert vào bảng Students
 
-        // $dataLoop = [];
-        // for ($i=1; $i <= 100 ; $i++) { 
-        //     // $dataStudentSeed['name'].$i;
-        //     array_push($dataStudentSeed, [
-        //         'name'=>'BUI QUYNH NINH' .$i,
-        //         'address'=>'', // có thể bỏ trống vì đã dùng nullable
-        //         'time_start'=> '2022-07-01',
-        //         'email'=>'ninhbqph13349@fpt.edu.vn',
-        //         'password'=> Hash::make('123456'),
-        //         'created_at'=> date('Y-m-d H:i:s'),
-        //         'updated_at'=> date('Y-m-d H:i:s')
-        //     ],);
-        // }
+        for ($i=1; $i <= 20 ; $i++) { 
+            // $dataStudentSeed['name'].$i;
+            array_push($dataStudentSeed, [
+                'name'=>'BUI QUYNH NINH' .$i,
+                'address'=>'', // có thể bỏ trống vì đã dùng nullable
+                'time_start'=> '2022-07-01',
+                'email'=>'ninhbqph13349@fpt.edu.vn',
+                'password'=> Hash::make('123456'),
+                'created_at'=> date('Y-m-d H:i:s'),
+                'updated_at'=> date('Y-m-d H:i:s')
+            ],);
+        }
         DB::table('students')->insert($dataStudentSeed);
+
+        for ($i=1; $i <= 50 ; $i++) { 
+            // $dataStudentSeed['name'].$i;
+            array_push($dataStudentSeed, [
+                'name'=>'san pham ' .$i,
+                'image'=>'', // có thể bỏ trống vì đã dùng nullable
+                'quantity'=> '1000',
+                'date'=>'2022-07-19',
+                'created_at'=> date('Y-m-d H:i:s'),
+                'updated_at'=> date('Y-m-d H:i:s')
+            ],);
+        }        
+        DB::table('product')->insert($dataProductSeed);
 
     }
 }
