@@ -26,5 +26,6 @@ Route::post('/login', ['as'=>'login','uses'=>'Auth\LoginController@postLogin']);
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/test', 'TestController@index');
+    Route::get('/add', 'TestController@add');
 
 });
