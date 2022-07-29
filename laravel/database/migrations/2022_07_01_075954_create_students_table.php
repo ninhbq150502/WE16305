@@ -18,7 +18,7 @@ return new class extends Migration
             //tạo các cột trong db
             $table->string('name');
             $table->string('address')->nullable(); //có thể ko điền địa chỉ
-            $table->date('time_start'); 
+            $table->date('time_start')->nullable(); 
             $table->string('email');
             $table->string('password');
             // Thêm 1 dòng mới vào db 

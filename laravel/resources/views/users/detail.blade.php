@@ -1,5 +1,5 @@
 @extends('templates.layout')
-@section('title', $_title)
+@section('title', $title)
 @section('content')
     <!-- Main content -->
     <section class="content appTuyenSinh">
@@ -70,7 +70,7 @@
     @endif
 
     <!-- Phần nội dung riêng của action  -->
-        <form class="form-horizontal " action="" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal " action="{{route("router_BackEnd_Users_Detail")}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="box-body">
                 <div class="row">
@@ -79,21 +79,21 @@
                             <label for="ten_de_thi" class="col-md-3 col-sm-4 control-label">Tên người dùng <span class="text-danger">(*)</span></label>
 
                             <div class="col-md-9 col-sm-8">
-                                <input type="text" name="name" id="name" class="form-control" value="@isset($request['name']){{ $request['name'] }}@endisset">
+                                <input type="text" name="tensv" id="name" class="form-control" value="{{ $objItem->name}}">
                                 <span id="mes_sdt"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-md-3 col-sm-4 control-label">Email <span class="text-danger">(*)</span></label>
                             <div class="col-md-9 col-sm-8">
-                                <input type="text" name="email" id="email" class="form-control" value="@isset($request['email']){{ $request['email'] }}@endisset">
+                                <input type="text" name="email" id="email" class="form-control" value="{{ $objItem->email}}">
                                 <span id="mes_sdt"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="email" class="col-md-3 col-sm-4 control-label">Mật khẩu <span class="text-danger">(*)</span></label>
+                            <label for="password" class="col-md-3 col-sm-4 control-label">Password <span class="text-danger">(*)</span></label>
                             <div class="col-md-9 col-sm-8">
-                                <input type="password" name="password" id="password" class="form-control" value="@isset($request['password']){{ $request['password'] }}@endisset">
+                                <input type="text" name="password" id="password" class="form-control" value="{{ $objItem->password}}">
                                 <span id="mes_sdt"></span>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
             <!-- /.box-body -->
             <div class="text-center">
                 <button type="submit" class="btn btn-primary"> Save</button>
-                <a href="{{ route('route_BackEnd_Users_Add') }}" class="btn btn-default">Cancel</a>
+                <a href="" class="btn btn-default">Cancel</a>
             </div>
             <!-- /.box-footer -->
         </form>

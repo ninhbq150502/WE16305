@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Test1;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use PHPUnit\Util\Test;
 
 class TestController extends Controller
 {
@@ -28,9 +29,7 @@ class TestController extends Controller
         return view('users.index',$this->v);
 
     }
-    public function update(){
-        echo "Bùi Quỳnh Ninh";
-    }
+    
 
     public function add(Request $request){
         $_title = 'Them moi user';
@@ -60,7 +59,39 @@ class TestController extends Controller
                 redirect()->route('route_BackEnd_Users_Add');
             }
         }
-        return view('user.add',$this->v);
+        return view('users.add',$this->v);
     }
+
+    public function detail($id){
+        $this->v['title'] = 'Chi tiết người dùng';
+        $test = new Test1();
+        $objItem = $test->loadOne($id);
+        $this->v['objItem'] = $objItem;
+        return view('users.detail', $this->v);
+    }
+    
+    public function update($id, Request $request){
+        $method_route = "router_BackEnd_Users_Detail";
+        $params = [];
+        $params['cols'] = $request->post();
+        unset($params['cols']['_token']);
+        $test = new Test1();
+        $objItem = $test ->loadOne($id);
+        $params['cols']['id'] = $id;
+        if(!is_null($params['cols']['password'])){
+            $params['cols']['password'] = Hash::make($params['cols']['password']);
+        }
+        $res= $test->saveUpdate($params);
+        if($res == null){
+            redirect()->route('route_BackEnd_Users_Add');
+        }
+        else if($res > 0){
+            Session::flash('success','Cap nhat ban ghi'. $objItem->id .' thanh cong');
+        }else{
+            Session::flash('error','Lỗi cập nhật bản ghi '. $objItem->id);
+            redirect()->route('route_BackEnd_Users_Add');
+        }
+    }
+
     
 }

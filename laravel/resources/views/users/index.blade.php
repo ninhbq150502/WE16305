@@ -83,7 +83,7 @@
                             </button>
                             <a href="{{ url('/user') }}" class="btn btn-default btn-sm "><i class="fa fa-remove"></i>
                                 Clear </a>
-                            <a href="" class="btn btn-info btn-sm"><i class="fa fa-user-plus" style="color:white;"></i>
+                            <a href="{{ route('route_BackEnd_Users_Add') }}" class="btn btn-info btn-sm"><i class="fa fa-user-plus" style="color:white;"></i>
                                 Add new</a>
                         </div>
                     </div>
@@ -160,7 +160,7 @@
                             <tr>
                                 {{--                                <td><input type="checkbox" name="chk_hv[]" class="chk_hv" id="chk_hv_{{$item->id}}" value="{{$item->id}}"> </td>--}}
                                 <td class="text-center">{{$item->id}}</td>
-                                <td class="text-center"><a style="color:#333333;font-weight: bold;" href="" style="white-space:unset;text-align: justify;"> {{$item->name}} <i class="fa fa-edit"></i></a></td>
+                                <td class="text-center"><a style="color:#333333;font-weight: bold;" href="{{url('/test/detail/'.$item->id) }}" style="white-space:unset;text-align: justify;"> {{$item->name}} <i class="fa fa-edit"></i></a></td>
                                 <td class="text-center">{{$item->email}}</td>
                                 <td class="text-center">
                                    nhân viên
